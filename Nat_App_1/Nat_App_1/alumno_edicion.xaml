@@ -1,0 +1,69 @@
+﻿<Window x:Class="Nat_App_1.alumno_edicion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nat_App_1"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="alumno_edicion" Height="500" Width="800"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" 
+        FontFamily="Segoe UI Emoji">
+    <Grid>
+        <Rectangle Height="500" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFBC2D0D"/>
+                    <GradientStop Color="#FFBC2D0D" Offset="2"/>
+                    <GradientStop Color="OrangeRed" Offset="1.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="DeepSkyBlue" Margin="0,0,0,-24" Click="alumnosedicion_back" VerticalAlignment="Top">
+                    <materialDesign:PackIcon Kind="ArrowBack" Width="50" Height="50"/>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="DeepSkyBlue" Click="alumno_editado_check" VerticalAlignment="Top">
+                    <materialDesign:PackIcon Kind="Check" Width="50" Height="50"/>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 50 0 0">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Margin="500 0 0 0" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="DeepSkyBlue" Click="alumno_editado_show" VerticalAlignment="Top">
+                    <materialDesign:PackIcon Kind="ShowOutline" Width="50" Height="50"/>
+                </Button>
+                <TextBox Name="txtAlumnoId" Margin="5" TextAlignment="Center" HorizontalContentAlignment="Center" materialDesign:HintAssist.Hint="Id del alumno:" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Foreground="DeepSkyBlue" PreviewTextInput="TxtAlumnoId_PreviewTextInput"/>
+            </StackPanel>
+        </Grid>
+        <TextBlock Text="Editado" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="DeepSkyBlue" FontFamily="Comic Sans MS" FontSize="40" TextDecorations="{x:Null}" FontWeight="Bold"/>
+        <Rectangle Width="700" Height="330" VerticalAlignment="Bottom" Margin="50 0 50 50" RadiusY="10" RadiusX="10" Fill="White">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="Yellow"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Grid VerticalAlignment="Top" Margin="50 120 50 0" Height="175">
+            <Label Content="Datos del alumno" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Gray" FontSize="18"/>
+            <StackPanel Margin="20,20,20,0">
+                <TextBox Name="txtNombreAlumnoED" Margin="0 0 340 0" materialDesign:HintAssist.Hint="NOMBRE(S):" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="45" PreviewTextInput="TxtNombreAlumnoED_PreviewTextInput"/>
+                <TextBox Name="txtEdadED" Margin="0 0 500 0" materialDesign:HintAssist.Hint="EDAD:" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="45" PreviewTextInput="TxtEdadED_PreviewTextInput"/>
+                <TextBox Name="txtMunicipiED" Margin="0 0 455 0" materialDesign:HintAssist.Hint="MUNICIPIO:" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="45" PreviewTextInput="TxtMunicipiED_PreviewTextInput"/>
+                <TextBox Name="txtApellidoAlumnoED" Margin="340 -225 0 0" materialDesign:HintAssist.Hint="APELLIDO(S):" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="45" PreviewTextInput="TxtApellidoAlumnoED_PreviewTextInput"/>
+                <TextBox Name="txtGradoED" Margin="340 -135 160 0" materialDesign:HintAssist.Hint="GRADO:" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="45"/>
+                <TextBox Name="txtDireccioED" Margin="220 -45 220 0" materialDesign:HintAssist.Hint="DIRECCIÓN:" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="45"/>
+                <TextBox Name="txtNacimientoED" Margin="455 -45 0 0" materialDesign:HintAssist.Hint="NACIMIENTO:" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="45"/>
+            </StackPanel>
+        </Grid>
+        <Grid VerticalAlignment="Bottom" Margin="50 0 50 50" Height="175">
+            <Label Content="Datos del tutor" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Gray" FontSize="18" Margin="0 10 0 0"/>
+            <StackPanel Margin="20">
+                <TextBox Name="txtNombreTutorED" Margin="0 0 0 0" materialDesign:HintAssist.Hint="NOMBRE(S):" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="45" PreviewTextInput="TxtNombreTutorED_PreviewTextInput"/>
+                <TextBox Name="txtApellidoTutorED" Margin="0 0 0 0" materialDesign:HintAssist.Hint="APELLIDO(S):" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="45" PreviewTextInput="TxtApellidoTutorED_PreviewTextInput"/>
+                <TextBox Name="txtNumeroED" Margin="0 0 0 0" materialDesign:HintAssist.Hint="NÚMERO TELEFÓNICO:" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="45" PreviewTextInput="TxtNumeroED_PreviewTextInput"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

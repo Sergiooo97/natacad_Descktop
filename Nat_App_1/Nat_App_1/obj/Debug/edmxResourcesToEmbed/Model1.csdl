@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="natacadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="natacadT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Apellidos" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Edad" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Grado" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha_de_nacimiento" Type="DateTime" Precision="0" />
+    <Property Name="Municipio" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre_Tutor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Apellidos_Tutor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Celular_Tutor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="codigo" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DineroNT">
+    <Key>
+      <PropertyRef Name="codigo" />
+      <PropertyRef Name="disponible" />
+    </Key>
+    <Property Name="codigo" Type="Int32" Nullable="false" />
+    <Property Name="disponible" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DineroS">
+    <Key>
+      <PropertyRef Name="Idd" />
+    </Key>
+    <Property Name="codigo" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Idd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityContainer Name="natacadEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="natacadT" EntityType="Self.natacadT" />
+    <EntitySet Name="DineroNT" EntityType="Self.DineroNT" />
+    <EntitySet Name="DineroS" EntityType="Self.DineroS" />
+  </EntityContainer>
+</Schema>

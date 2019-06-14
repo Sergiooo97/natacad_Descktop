@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="natacadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'natacad.dbo.DineroNT' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="DineroNT">
+          <Key>
+            <PropertyRef Name="codigo" />
+            <PropertyRef Name="disponible" />
+          </Key>
+          <Property Name="codigo" Type="int" Nullable="false" />
+          <Property Name="disponible" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DineroS">
+          <Key>
+            <PropertyRef Name="Idd" />
+          </Key>
+          <Property Name="codigo" Type="int" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+          <Property Name="Idd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="natacadT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="20" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="20" />
+          <Property Name="Edad" Type="nvarchar" MaxLength="10" />
+          <Property Name="Grado" Type="nvarchar" MaxLength="10" />
+          <Property Name="Fecha_de_nacimiento" Type="date" />
+          <Property Name="Municipio" Type="nvarchar" MaxLength="20" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="20" />
+          <Property Name="Nombre_Tutor" Type="nvarchar" MaxLength="20" />
+          <Property Name="Apellidos_Tutor" Type="nvarchar" MaxLength="20" />
+          <Property Name="Celular_Tutor" Type="nvarchar" MaxLength="10" />
+          <Property Name="codigo" Type="int" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="natacadModelStoreContainer">
+          <EntitySet Name="DineroS" EntityType="Self.DineroS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="natacadT" EntityType="Self.natacadT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DineroNT" EntityType="Self.DineroNT" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DineroNT].[codigo] AS [codigo], 
+    [DineroNT].[disponible] AS [disponible]
+    FROM [dbo].[DineroNT] AS [DineroNT]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="natacadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="natacadT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Apellidos" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Edad" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Grado" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_de_nacimiento" Type="DateTime" Precision="0" />
+          <Property Name="Municipio" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre_Tutor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Apellidos_Tutor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Celular_Tutor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DineroNT">
+          <Key>
+            <PropertyRef Name="codigo" />
+            <PropertyRef Name="disponible" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="disponible" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DineroS">
+          <Key>
+            <PropertyRef Name="Idd" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Idd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="natacadEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="natacadT" EntityType="Self.natacadT" />
+          <EntitySet Name="DineroNT" EntityType="Self.DineroNT" />
+          <EntitySet Name="DineroS" EntityType="Self.DineroS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="natacadModelStoreContainer" CdmEntityContainer="natacadEntities">
+          <EntitySetMapping Name="natacadT">
+            <EntityTypeMapping TypeName="natacadModel.natacadT">
+              <MappingFragment StoreEntitySet="natacadT">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Grado" ColumnName="Grado" />
+                <ScalarProperty Name="Fecha_de_nacimiento" ColumnName="Fecha_de_nacimiento" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Nombre_Tutor" ColumnName="Nombre_Tutor" />
+                <ScalarProperty Name="Apellidos_Tutor" ColumnName="Apellidos_Tutor" />
+                <ScalarProperty Name="Celular_Tutor" ColumnName="Celular_Tutor" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DineroNT">
+            <EntityTypeMapping TypeName="natacadModel.DineroNT">
+              <MappingFragment StoreEntitySet="DineroNT">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="disponible" ColumnName="disponible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DineroS">
+            <EntityTypeMapping TypeName="natacadModel.DineroS">
+              <MappingFragment StoreEntitySet="DineroS">
+                <ScalarProperty Name="Idd" ColumnName="Idd" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

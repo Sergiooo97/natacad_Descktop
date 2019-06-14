@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="natacadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'natacad.dbo.DineroNT' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="DineroNT">
+    <Key>
+      <PropertyRef Name="codigo" />
+      <PropertyRef Name="disponible" />
+    </Key>
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="disponible" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DineroS">
+    <Key>
+      <PropertyRef Name="Idd" />
+    </Key>
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+    <Property Name="Idd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="natacadT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="20" />
+    <Property Name="Apellidos" Type="nvarchar" MaxLength="20" />
+    <Property Name="Edad" Type="nvarchar" MaxLength="10" />
+    <Property Name="Grado" Type="nvarchar" MaxLength="10" />
+    <Property Name="Fecha_de_nacimiento" Type="date" />
+    <Property Name="Municipio" Type="nvarchar" MaxLength="20" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="20" />
+    <Property Name="Nombre_Tutor" Type="nvarchar" MaxLength="20" />
+    <Property Name="Apellidos_Tutor" Type="nvarchar" MaxLength="20" />
+    <Property Name="Celular_Tutor" Type="nvarchar" MaxLength="10" />
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="natacadModelStoreContainer">
+    <EntitySet Name="DineroS" EntityType="Self.DineroS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="natacadT" EntityType="Self.natacadT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DineroNT" EntityType="Self.DineroNT" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DineroNT].[codigo] AS [codigo], 
+    [DineroNT].[disponible] AS [disponible]
+    FROM [dbo].[DineroNT] AS [DineroNT]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
